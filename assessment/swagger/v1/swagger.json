@@ -83,6 +83,41 @@
           }
         }
       }
+    },
+    "/v2/search": {
+      "get": {
+        "summary": "Get beer list from query",
+        "operationId": "Beer_GetBeerQuery",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beer"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
   },
   "components": {
     "schemas": {

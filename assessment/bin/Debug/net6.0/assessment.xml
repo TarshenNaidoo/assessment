@@ -34,6 +34,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:assessment.Controllers.BeerController.GetBeerQuery(System.String)">
+            <summary>
+            Searches for and returns a matching beer corresponding to query
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
         <member name="T:assessment.Models.Beer">
             <summary>
             Contains the model for Beer
@@ -172,6 +179,13 @@
             <summary>
             Returns a beer matching id
             </summary>
+            <returns>A list of beers</returns>
+        </member>
+        <member name="M:assessment.Services.BeerApiService.GetBeerQuery(System.String)">
+            <summary>
+            Returns a beer matching query
+            </summary>
+            <param name="query"></param>
             <returns>A list of beers</returns>
         </member>
     </members>

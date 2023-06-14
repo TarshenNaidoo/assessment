@@ -1,4 +1,5 @@
 ﻿using assessment.Models;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -13,6 +14,7 @@ namespace assessment.Services
     public class BeerApiService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private string baseUri = "https://api.punkapi.com/v2/beers";
 
         /// <summary>
         /// Constructor for Beer service class
@@ -30,7 +32,7 @@ namespace assessment.Services
         public async Task<JsonDocument> GetBeers()
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();
-            HttpResponseMessage response = await httpClient.GetAsync("https://api.punkapi.com/v2/beers");
+            HttpResponseMessage response = await httpClient.GetAsync(baseUri);
             response.EnsureSuccessStatusCode();
 
             string responseBody = await response.Content.ReadAsStringAsync();
@@ -45,7 +47,10 @@ namespace assessment.Services
         public async Task<JsonDocument> GetBeer(int id)
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();
-            HttpResponseMessage response = await httpClient.GetAsync($"https://api.punkapi.com/v2/beers/{id}");
+
+            UriBuilder uriBuilder = new UriBuilder(baseUri);
+            uriBuilder.Path = $"{uriBuilder.Path}/{id}";
+            HttpResponseMessage response = await httpClient.GetAsync(uriBuilder.Uri.ToString());
             response.EnsureSuccessStatusCode();
 
             string responseBody = await response.Content.ReadAsStringAsync();
@@ -59,7 +64,33 @@ namespace assessment.Services
         public async Task<JsonDocument> GetBeerRandom()
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();
-            HttpResponseMessage response = await httpClient.GetAsync("https://api.punkapi.com/v2/beers/random");
+
+            UriBuilder uriBuilder = new UriBuilder(baseUri);
+            uriBuilder.Path = $"{uriBuilder.Path}/random";
+
+            HttpResponseMessage response = await httpClient.GetAsync(uriBuilder.Uri.ToString());
+            response.EnsureSuccessStatusCode();
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            return JsonDocument.Parse(responseBody);
+        }
+
+        /// <summary>
+        /// Returns a beer matching query
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns>A list of beers</returns>
+        public async Task<JsonDocument> GetBeerQuery(string query)
+        {
+            HttpClient httpClient = _httpClientFactory.CreateClient();
+            string queryParameter = "beer_name";
+            string queryValue = "query";
+
+            UriBuilder uriBuilder = new UriBuilder(baseUri);
+            uriBuilder.Query = $"{queryParameter}={Uri.EscapeDataString(queryValue)}";
+
+            HttpResponseMessage response = await httpClient.GetAsync(uriBuilder.Uri.ToString());
             response.EnsureSuccessStatusCode();
 
             string responseBody = await response.Content.ReadAsStringAsync();

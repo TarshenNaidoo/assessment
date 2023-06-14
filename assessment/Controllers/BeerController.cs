@@ -48,7 +48,7 @@ namespace assessment.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("/beer/{id}")]
         public async Task<IActionResult> GetBeer(int id)
         {
             JsonDocument response = await _beerApiService.GetBeer(id);
@@ -69,6 +69,25 @@ namespace assessment.Controllers
         public async Task<IActionResult> GetBeerRandom()
         {
             JsonDocument response = await _beerApiService.GetBeerRandom();
+
+            if (response.RootElement.ValueKind == JsonValueKind.Undefined)
+            {
+                return NotFound();
+            }
+
+            return Ok(response);
+        }
+
+
+        /// <summary>
+        /// Searches for and returns a matching beer corresponding to query
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        [HttpGet("/search")]
+        public async Task<IActionResult> GetBeerQuery(string query)
+        {
+            JsonDocument response = await _beerApiService.GetBeerQuery(query);
 
             if (response.RootElement.ValueKind == JsonValueKind.Undefined)
             {
