@@ -1,0 +1,176 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Your API Title",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.punkapi.com/"
+    }
+  ],
+  "paths": {
+    "/v2/beer/menu": {
+      "get": {
+        "summary": "Get all beers",
+        "operationId": "Beer_GetBeers",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beer"
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/v2/beer/{id}": {
+      "get": {
+        "summary": "Get beer by ID",
+        "operationId": "Beer_GetBeerById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beer"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/v2/beer/random": {
+      "get": {
+        "summary": "Get random beer",
+        "operationId": "Beer_GetBeerRandom",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beer"
+                }
+              }
+            }
+          }
+        }
+      }
+  },
+  "components": {
+    "schemas": {
+      "Beer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tagline": {
+            "type": "string"
+          },
+          "first_brewed": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "abv": {
+            "type": "string"
+          },
+          "ibu": {
+            "type": "string"
+          },
+          "target_fg": {
+            "type": "string"
+          },
+          "target_og": {
+            "type": "string"
+          },
+          "ebc": {
+            "type": "string"
+          },
+          "srm": {
+            "type": "string"
+          },
+          "ph": {
+            "type": "string"
+          },
+          "volume": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "boil_volume": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "method": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ingredients": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "food_pairing": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "brewers_tips": {
+            "type": "string"
+          },
+          "attenuation_level": {
+            "type": "string"
+          },
+          "contributed_by": {
+            "type": "string"
+          }
+        }
+      }
+
+    }
+  }
+}
