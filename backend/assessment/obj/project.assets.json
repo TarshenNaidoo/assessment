@@ -486,11 +486,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tarshen\\Documents\\GitHub\\assessment\\assessment\\assessment.csproj",
+      "projectUniqueName": "C:\\Users\\Tarshen\\Documents\\GitHub\\assessment\\backend\\assessment\\assessment.csproj",
       "projectName": "assessment",
-      "projectPath": "C:\\Users\\Tarshen\\Documents\\GitHub\\assessment\\assessment\\assessment.csproj",
+      "projectPath": "C:\\Users\\Tarshen\\Documents\\GitHub\\assessment\\backend\\assessment\\assessment.csproj",
       "packagesPath": "C:\\Users\\Tarshen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tarshen\\Documents\\GitHub\\assessment\\assessment\\obj\\",
+      "outputPath": "C:\\Users\\Tarshen\\Documents\\GitHub\\assessment\\backend\\assessment\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tarshen\\AppData\\Roaming\\NuGet\\NuGet.Config",

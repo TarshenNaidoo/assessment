@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>assessment</name>
+    </assembly>
+    <members>
+        <member name="T:assessment.Controllers.BeerController">
+            <summary>
+            BeerController Contains api calls for beer objects
+            </summary>
+            <returns>A list of beers</returns>
+        </member>
+        <member name="M:assessment.Controllers.BeerController.#ctor(System.Net.Http.IHttpClientFactory,assessment.Services.BeerApiService)">
+            <summary>
+            Constructor for Beer Controller
+            </summary>
+        </member>
+        <member name="M:assessment.Controllers.BeerController.GetBeers">
+            <summary>
+            Returns a list of all beer objects
+            </summary>
+            <returns>beer object list</returns>
+        </member>
+        <member name="M:assessment.Controllers.BeerController.GetBeer(System.Int32)">
+            <summary>
+            Searches for and returns a matching beer corresponding to id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:assessment.Controllers.BeerController.GetBeerRandom">
+            <summary>
+            Returns a random beer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:assessment.Controllers.BeerController.GetBeerQuery(System.String)">
+            <summary>
+            Searches for and returns a matching beer corresponding to query
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="T:assessment.Models.Beer">
+            <summary>
+            Contains the model for Beer
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Tagline">
+            <summary>
+            Tagline
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.First_brewed">
+            <summary>
+            First_brewed
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Image_url">
+            <summary>
+            Image_url
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Abv">
+            <summary>
+            Abv
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Ibu">
+            <summary>
+            Ibu
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Target_fg">
+            <summary>
+            Target_fg
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Target_og">
+            <summary>
+            Target_fg
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Ebc">
+            <summary>
+            Ebc
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Srm">
+            <summary>
+            Srm
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Ph">
+            <summary>
+            Ph
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Volume">
+            <summary>
+            Volume
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Boil_volume">
+            <summary>
+            Boil_volume
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Method">
+            <summary>
+            Method
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Ingredients">
+            <summary>
+            Ingredients
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Food_pairing">
+            <summary>
+            Food_pairing
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Brewers_tips">
+            <summary>
+            Brewers_tips
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Attenuation_level">
+            <summary>
+            Attenuation_level
+            </summary>
+        </member>
+        <member name="P:assessment.Models.Beer.Contributed_by">
+            <summary>
+            Contributed_by
+            </summary>
+        </member>
+        <member name="T:assessment.Services.BeerApiService">
+            <summary>
+            Beer service interfaces with api endpoints
+            </summary>
+        </member>
+        <member name="M:assessment.Services.BeerApiService.#ctor(System.Net.Http.IHttpClientFactory)">
+            <summary>
+            Constructor for Beer service class
+            </summary>
+            <param name="httpClientFactory"></param>
+        </member>
+        <member name="M:assessment.Services.BeerApiService.GetBeers">
+            <summary>
+            Returns a list of all beers
+            </summary>
+            <returns>A list of beers</returns>
+        </member>
+        <member name="M:assessment.Services.BeerApiService.GetBeer(System.Int32)">
+            <summary>
+            Returns a beer matching id
+            </summary>
+            <param name="id"></param>
+            <returns>A list of beers</returns>
+        </member>
+        <member name="M:assessment.Services.BeerApiService.GetBeerRandom">
+            <summary>
+            Returns a beer matching id
+            </summary>
+            <returns>A list of beers</returns>
+        </member>
+        <member name="M:assessment.Services.BeerApiService.GetBeerQuery(System.String)">
+            <summary>
+            Returns a beer matching query
+            </summary>
+            <param name="query"></param>
+            <returns>A list of beers</returns>
+        </member>
+    </members>
+</doc>
