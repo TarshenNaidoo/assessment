@@ -1,4 +1,5 @@
 ﻿using assessment.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -13,6 +14,7 @@ namespace assessment.Controllers
     /// <returns>A list of beers</returns>
     [ApiController]
     [Route("api/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     public class BeerController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -31,6 +33,7 @@ namespace assessment.Controllers
         /// </summary>
         /// <returns>beer object list</returns>
         [HttpGet("/beer")]
+        [EnableCors("AllowSpecificOrigin")]
         public async Task<IActionResult> GetBeers()
         {
             JsonDocument response = await _beerApiService.GetBeers();
@@ -40,7 +43,8 @@ namespace assessment.Controllers
                 return NoContent();
             }
 
-            return Ok(response);
+            var returnObject = Ok(response);
+            return returnObject;
         }
 
         /// <summary>
