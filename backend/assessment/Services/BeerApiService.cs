@@ -1,4 +1,5 @@
 ﻿using assessment.Models;
+using Microsoft.AspNetCore.Cors;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -29,6 +30,7 @@ namespace assessment.Services
         /// Returns a list of all beers
         /// </summary>
         /// <returns>A list of beers</returns>
+        [EnableCors("AllowSpecificOrigin")]
         public async Task<JsonDocument> GetBeers()
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();
