@@ -103,10 +103,18 @@ function  BeerItem({beerId}) {
     const [beers, setBeers] = useState(null);
 
     useEffect(() => {
+
+      if (beerId < 0) {
+        fetch('https://localhost:7104/beer/random')
+          .then(response => response.json())
+          .then(data => setBeers(data))
+          .catch(error => console.log(error));
+      } else {
         fetch('https://localhost:7104/beer/' + beerId)
           .then(response => response.json())
           .then(data => setBeers(data))
           .catch(error => console.log(error));
+      }
     }, [beerId]);
 
     if (beers === null) {

@@ -4,7 +4,6 @@ function BeerMap({ beers, setBeerItem }) {
   const handleBeerClick = (beerId) => {
     setBeerItem(beerId);
   };
-
   return (
     <div>
       {beers.map((beer) => (
