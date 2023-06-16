@@ -13,6 +13,7 @@ function Navbar() {
 
     const toggleBeerList = () => {
         setShowBeerList(true);
+        setBeerId(null);
     }
 
     const toggleRandomBeer = () => {
@@ -25,7 +26,7 @@ function Navbar() {
     };
     
     return (
-        <div>
+        <div className="navbar">
             <div>
             <button onClick={() => toggleBeerList()}>Beer List</button>
             <button onClick={() => toggleRandomBeer()}>Random Beer</button>
