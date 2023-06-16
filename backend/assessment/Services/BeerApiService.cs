@@ -87,7 +87,7 @@ namespace assessment.Services
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();
             string queryParameter = "beer_name";
-            string queryValue = "query";
+            string queryValue = query;
 
             UriBuilder uriBuilder = new UriBuilder(baseUri);
             uriBuilder.Query = $"{queryParameter}={Uri.EscapeDataString(queryValue)}";
